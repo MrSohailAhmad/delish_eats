@@ -86,8 +86,8 @@ const Home = () => {
 
   return (
     <>
-      <div className=" w-full bg-indigo-800">
-        <div className="grid w-[80%] py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+      <div className=" w-full bg-indigo-800 justify-center" >
+        <div className="grid w-[80%] py-3 mx-auto lg:gap-8 xl:gap-0 lg:py-4 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-[10rem] text-white">
               ZERO
@@ -101,9 +101,9 @@ const Home = () => {
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
-              alt="mockup"
-            />
+        src="https://res.cloudinary.com/resello/image/upload/v1720981722/picture_creera_snz0wk.png"
+        alt="mockup"
+      />
           </div>
         </div>
       </div>
@@ -136,7 +136,7 @@ const Home = () => {
           <div className=" w-full items-start">
             <span className="text-4xl font-bold">Popular</span>
           </div>
-          <div className="flex w-full flex-wrap items-center justify-center gap-5">
+          <div className="flex w-full flex-wrap items-center justify-start gap-5">
             {popularData.map((item, indx) => (
               <CardCom item={item} key={indx} />
             ))}
@@ -153,7 +153,7 @@ const Home = () => {
           <div className=" w-full items-start">
             <span className="text-4xl font-bold">BOGO Combo FLAT 25% OFF</span>
           </div>
-          <div className="flex w-full flex-wrap items-center justify-center gap-5">
+          <div className="flex w-full flex-wrap items-center justify-start gap-5">
             {popularData.map((item, indx) => (
               <CardCom item={item} key={indx} />
             ))}
@@ -170,7 +170,7 @@ const Home = () => {
           <div className=" w-full items-start">
             <span className="text-4xl font-bold">Chicken</span>
           </div>
-          <div className="flex w-full flex-wrap items-center justify-center gap-5">
+          <div className="flex w-full flex-wrap items-center justify-start gap-5">
             {popularData.map((item, indx) => (
               <CardCom item={item} key={indx} />
             ))}
@@ -187,7 +187,7 @@ const Home = () => {
           <div className=" w-full items-start">
             <span className="text-4xl font-bold">Wraps</span>
           </div>
-          <div className="flex w-full flex-wrap items-center justify-center gap-5">
+          <div className="flex w-full flex-wrap items-center justify-start gap-5">
             {popularData.map((item, indx) => (
               <CardCom item={item} key={indx} />
             ))}
@@ -204,7 +204,7 @@ const Home = () => {
           <div className=" w-full items-start">
             <span className="text-4xl font-bold">Paratha Rolls</span>
           </div>
-          <div className="flex w-full flex-wrap items-center justify-center gap-5">
+          <div className="flex w-full flex-wrap items-center justify-start gap-5">
             {popularData.map((item, indx) => (
               <CardCom item={item} key={indx} />
             ))}
@@ -221,7 +221,7 @@ const Home = () => {
           <div className=" w-full items-start">
             <span className="text-4xl font-bold">Shawarma</span>
           </div>
-          <div className="flex w-full flex-wrap items-center justify-center gap-5">
+          <div className="flex w-full flex-wrap items-center justify-start gap-5">
             {popularData.map((item, indx) => (
               <CardCom item={item} key={indx} />
             ))}
