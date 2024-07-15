@@ -86,13 +86,13 @@ const Home = () => {
 
   return (
     <>
-      <div className=" w-full bg-indigo-800 justify-center" >
-        <div className="grid w-[80%] py-3 mx-auto lg:gap-8 xl:gap-0 lg:py-4 lg:grid-cols-12">
+      <div className=" grid w-[80%] sm:h-[30rem] place-self-center justify-center" style={{ backgroundColor: '#8B3DFF', alignItems: 'center' }} >
+        <div className="grid w-[80%] place-self-center  py-3 mx-auto lg:gap-8 xl:gap-0 lg:py-4 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
-            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-[10rem] text-white">
+            <h1 className="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-[7rem] text-white">
               ZERO
             </h1>
-            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">
+            <h1 className="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-2xl text-white">
               DELIVERY, PLATEFORM & PACKAJING FEE
             </h1>
             <p className="max-w-2xl mb-6  lg:mb-8 md:text-lg lg:text-xl text-gray-400">
@@ -101,9 +101,9 @@ const Home = () => {
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img
-        src="https://res.cloudinary.com/resello/image/upload/v1720981722/picture_creera_snz0wk.png"
-        alt="mockup"
-      />
+              src="https://res.cloudinary.com/resello/image/upload/v1720981722/picture_creera_snz0wk.png"
+              alt="mockup"
+            />
           </div>
         </div>
       </div>
