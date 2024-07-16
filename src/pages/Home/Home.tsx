@@ -11,6 +11,7 @@ const Home = () => {
   const wrapsRef = useRef(null);
   const parathaRollsRef = useRef(null);
   const shawarmaRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const popularData: CardInterface[] = [
     {
@@ -50,7 +51,14 @@ const Home = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const cetagoaryData = [
+    { title: "BOGO Combo", img: images.CardImg1, ref: comboRef },
+    { title: "Chicken", img: images.CardImg2, ref: chickenRef },
+    { title: "Wraps", img: images.CardImg3, ref: wrapsRef },
+    { title: "Paratha Roll", img: images.CardImg4, ref: parathaRollsRef },
+    { title: "Shawarma", img: images.CardImg5, ref: shawarmaRef },
+  ];
+
   const slides = [
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
@@ -224,56 +232,18 @@ const Home = () => {
             <span className="text-4xl font-bold">What's on your mind?</span>
           </div>
           <div className="flex w-full flex-wrap gap-5 items-center justify-start">
-            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
-              <img
-                className="w-full h-[80%]"
-                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_12_a9jvcm-removebg-preview.png"
-                alt=""
-              />
-              <p>
-                <span className="font-bold text-xl">BOGO Combo</span>
-              </p>
-            </div>
-            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
-              <img
-                className="w-full h-[80%]"
-                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_13_oupraf-removebg-preview.png"
-                alt=""
-              />
-              <p>
-                <span className="font-bold text-xl">Chicken</span>
-              </p>
-            </div>
-            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
-              <img
-                className="w-full h-[80%]"
-                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_5_enzb7b-removebg-preview.png"
-                alt=""
-              />
-              <p>
-                <span className="font-bold text-xl">Wraps</span>
-              </p>
-            </div>
-            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
-              <img
-                className="w-full h-[80%]"
-                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_6_qghnnc-removebg-preview.png"
-                alt=""
-              />
-              <p>
-                <span className="font-bold text-xl">Paratha Rolls</span>
-              </p>
-            </div>
-            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
-              <img
-                className="w-full h-[80%]"
-                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_7_sictok-removebg-preview.png"
-                alt=""
-              />
-              <p>
-                <span className="font-bold text-xl">Shawarma</span>
-              </p>
-            </div>
+            {cetagoaryData.map((item, indx) => (
+              <div
+                key={indx}
+                onClick={() => ""}
+                className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer"
+              >
+                <img className="w-full h-[80%]" src={item.img} alt="" />
+                <p>
+                  <span className="font-bold text-xl">{item.title}</span>
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
