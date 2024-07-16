@@ -86,13 +86,13 @@ const Home = () => {
 
   return (
     <>
-      <div className="grid w-[100%] sm:h-[30rem] place-self-center justify-center" style={{ backgroundColor: '#4355FE', alignItems: 'center' }}>
+      <div className="grid w-[70%] sm:h-[20rem] justify-center" style={{ backgroundColor: '#4355FE', alignSelf:'center', alignItems: 'center',borderRadius: 12 }}>
         <div className="grid w-[80%] place-self-center py-3 mx-auto lg:gap-8 xl:gap-0 lg:py-4 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
-            <h1 className="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-[7rem] text-white">
+            <h1 className="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-[5rem] text-white">
               ZERO
             </h1>
-            <h1 className="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-2xl text-white">
+            <h1 className="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-1xl text-white">
               DELIVERY, PLATFORM & PACKAGING FEE
             </h1>
             <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl text-gray-400">
@@ -103,21 +103,23 @@ const Home = () => {
             <img
               src="https://res.cloudinary.com/resello/image/upload/v1720981722/picture_creera_snz0wk.png"
               alt="mockup"
+              style={{ width: '200px', height: '100%' }}
             />
           </div>
         </div>
       </div>
-      
+      <p className="text-center text-xl font-medium" style={{color:"#000", fontFamily: "Sans-serif", paddingTop: 30}} >How it Works</p>
       {/* Implementing three horizontal delivery processes */}
       <div className="w-full flex items-center justify-center py-[5rem]">
-        <div className="w-[80%] flex justify-between">
+
+        <div className="w-[60%] flex justify-evenly">
           <div className="flex flex-col items-center">
             <img
               src="https://res.cloudinary.com/resello/image/upload/v1721065222/Vector_kwsy6q.png"
               alt="Easy to order"
               style={{ width: '50px', height: '50px' }}
             />
-            <p className="text-center text-xl font-bold">Easy to order</p>
+            <p className="text-center text-xl font-medium" style={{color:"gray", fontFamily: "Sans-serif", paddingTop: 12}} >Easy to order</p>
           </div>
           <div className="flex flex-col items-center">
             <img
@@ -125,7 +127,7 @@ const Home = () => {
               alt="Fastest Delivery"
               style={{ width: '50px', height: '50px' }}
             />
-            <p className="text-center text-xl font-bold">Fastest Delivery</p>
+            <p className="text-center text-xl font-medium" style={{color:"gray", fontFamily: "Sans-serif",paddingTop: 12}}>Fastest Delivery</p>
           </div>
           <div className="flex flex-col items-center">
             <img
@@ -133,7 +135,7 @@ const Home = () => {
               alt="Best Quality"
               style={{ width: '50px', height: '50px' }}
             />
-            <p className="text-center text-xl font-bold">Best Quality</p>
+            <p className="text-center text-xl font-medium" style={{color:"gray", fontFamily: "Sans-serif", paddingTop: 12}}>Best Quality</p>
           </div>
         </div>
       </div>
