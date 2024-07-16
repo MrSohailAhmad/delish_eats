@@ -152,27 +152,6 @@ const Home = () => {
             </span>
           </button>
         </div>
-
-        {/* <div className="flex w-[80%] bg-[#4355FE] rounded-md items-center justify-center gap-5 px-5 py-3">
-          <div className="mr-auto place-self-center w-[60%]">
-            <h1 className="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-[5rem] text-white">
-              ZERO
-            </h1>
-            <h1 className="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-1xl text-white">
-              DELIVERY, PLATFORM & PACKAGING FEE
-            </h1>
-            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl text-gray-400">
-              We deliver all your dishes in one single order
-            </p>
-          </div>
-          <div className="w-[40%] flex items-center justify-center">
-            <img
-              src="https://res.cloudinary.com/resello/image/upload/v1720981722/picture_creera_snz0wk.png"
-              alt="mockup"
-              style={{ width: "200px", height: "100%" }}
-            />
-          </div>
-        </div> */}
       </div>
       <p
         className="text-center text-xl font-medium"
@@ -233,6 +212,68 @@ const Home = () => {
             >
               Best Quality
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* cetagoary */}
+
+      <div className="w-full flex items-center justify-center py-[2rem]">
+        <div className="w-[80%] flex  flex-col gap-10">
+          <div className="">
+            <span className="text-4xl font-bold">What's on your mind?</span>
+          </div>
+          <div className="flex w-full flex-wrap gap-5 items-center justify-start">
+            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
+              <img
+                className="w-full h-[80%]"
+                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_12_a9jvcm-removebg-preview.png"
+                alt=""
+              />
+              <p>
+                <span className="font-bold text-xl">BOGO Combo</span>
+              </p>
+            </div>
+            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
+              <img
+                className="w-full h-[80%]"
+                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_13_oupraf-removebg-preview.png"
+                alt=""
+              />
+              <p>
+                <span className="font-bold text-xl">Chicken</span>
+              </p>
+            </div>
+            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
+              <img
+                className="w-full h-[80%]"
+                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_5_enzb7b-removebg-preview.png"
+                alt=""
+              />
+              <p>
+                <span className="font-bold text-xl">Wraps</span>
+              </p>
+            </div>
+            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
+              <img
+                className="w-full h-[80%]"
+                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_6_qghnnc-removebg-preview.png"
+                alt=""
+              />
+              <p>
+                <span className="font-bold text-xl">Paratha Rolls</span>
+              </p>
+            </div>
+            <div className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer">
+              <img
+                className="w-full h-[80%]"
+                src="/src/assets/Home/Green_Modern_Minimal_Chicken_Wrap_Sale_Poster_7_sictok-removebg-preview.png"
+                alt=""
+              />
+              <p>
+                <span className="font-bold text-xl">Shawarma</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
