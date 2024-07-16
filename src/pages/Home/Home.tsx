@@ -1,6 +1,6 @@
 // import React from "react";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { images } from "../../assets/images";
 import CardCom from "../../components/Card";
 import { CardInterface } from "../../Interfaces/card.interface";
@@ -11,33 +11,6 @@ const Home = () => {
   const wrapsRef = useRef(null);
   const parathaRollsRef = useRef(null);
   const shawarmaRef = useRef(null);
-  const navCardData = [
-    {
-      img: images.CardImg1,
-      title: "BOGO Combo",
-      ref: comboRef,
-    },
-    {
-      img: images.CardImg2,
-      title: "Chicken",
-      ref: chickenRef,
-    },
-    {
-      img: images.CardImg3,
-      title: "Wraps",
-      ref: wrapsRef,
-    },
-    {
-      img: images.CardImg4,
-      title: "Paratha Rolls",
-      ref: parathaRollsRef,
-    },
-    {
-      img: images.CardImg5,
-      title: "Shawarma",
-      ref: shawarmaRef,
-    },
-  ];
 
   const popularData: CardInterface[] = [
     {
@@ -77,18 +50,111 @@ const Home = () => {
     },
   ];
 
-  const scrollToSection = (sectionRef) => {
-    window.scrollTo({
-      top: sectionRef.current.offsetTop,
-      behavior: "smooth",
-    });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const slides = [
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
+    );
   };
 
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  };
   return (
     <>
-      <div className="grid w-[70%] sm:h-[20rem] justify-center" style={{ backgroundColor: '#4355FE', alignSelf:'center', alignItems: 'center',borderRadius: 12 }}>
-        <div className="grid w-[80%] place-self-center py-3 mx-auto lg:gap-8 xl:gap-0 lg:py-4 lg:grid-cols-12">
-          <div className="mr-auto place-self-center lg:col-span-7">
+      <div className=" w-full flex items-start justify-center">
+        <div
+          id="gallery"
+          className="relative group w-[80%]"
+          data-carousel="slide"
+        >
+          {/* Carousel wrapper */}
+          <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+            {slides.map((src, index) => (
+              <div
+                key={index}
+                className={`duration-700 ease-in-out ${
+                  currentIndex === index ? "block" : "hidden"
+                }`}
+                data-carousel-item={currentIndex === index ? "active" : ""}
+              >
+                <img
+                  src={src}
+                  className="absolute block w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt=""
+                />
+              </div>
+            ))}
+          </div>
+          {/* Slider controls */}
+          <button
+            type="button"
+            className="absolute hidden top-0 start-0 z-30 group-hover:flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            onClick={prevSlide}
+          >
+            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full  group-focus:outline-none">
+              <svg
+                className="w-4 h-4 text-white dark:text-gray-400 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 1 1 5l4 4"
+                />
+              </svg>
+              <span className="sr-only">Previous</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            className="absolute hidden top-0 end-0 z-30 group-hover:flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            onClick={nextSlide}
+          >
+            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full  group-focus:outline-none">
+              <svg
+                className="w-4 h-4 text-white dark:text-gray-400 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="m1 9 4-4-4-4"
+                />
+              </svg>
+              <span className="sr-only">Next</span>
+            </span>
+          </button>
+        </div>
+
+        {/* <div className="flex w-[80%] bg-[#4355FE] rounded-md items-center justify-center gap-5 px-5 py-3">
+          <div className="mr-auto place-self-center w-[60%]">
             <h1 className="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-[5rem] text-white">
               ZERO
             </h1>
@@ -99,43 +165,74 @@ const Home = () => {
               We deliver all your dishes in one single order
             </p>
           </div>
-          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <div className="w-[40%] flex items-center justify-center">
             <img
               src="https://res.cloudinary.com/resello/image/upload/v1720981722/picture_creera_snz0wk.png"
               alt="mockup"
-              style={{ width: '200px', height: '100%' }}
+              style={{ width: "200px", height: "100%" }}
             />
           </div>
-        </div>
+        </div> */}
       </div>
-      <p className="text-center text-xl font-medium" style={{color:"#000", fontFamily: "Sans-serif", paddingTop: 30}} >How it Works</p>
+      <p
+        className="text-center text-xl font-medium"
+        style={{ color: "#000", fontFamily: "Sans-serif", paddingTop: 30 }}
+      >
+        How it Works
+      </p>
       {/* Implementing three horizontal delivery processes */}
-      <div className="w-full flex items-center justify-center py-[5rem]">
-
+      <div className="w-full flex items-center justify-center py-[2rem]">
         <div className="w-[60%] flex justify-evenly">
           <div className="flex flex-col items-center">
             <img
               src="https://res.cloudinary.com/resello/image/upload/v1721065222/Vector_kwsy6q.png"
               alt="Easy to order"
-              style={{ width: '50px', height: '50px' }}
+              style={{ width: "50px", height: "50px" }}
             />
-            <p className="text-center text-xl font-medium" style={{color:"gray", fontFamily: "Sans-serif", paddingTop: 12}} >Easy to order</p>
+            <p
+              className="text-center text-xl font-medium"
+              style={{
+                color: "gray",
+                fontFamily: "Sans-serif",
+                paddingTop: 12,
+              }}
+            >
+              Easy to order
+            </p>
           </div>
           <div className="flex flex-col items-center">
             <img
               src="https://res.cloudinary.com/resello/image/upload/v1721065222/Vector_1_zz5gcb.png"
               alt="Fastest Delivery"
-              style={{ width: '50px', height: '50px' }}
+              style={{ width: "50px", height: "50px" }}
             />
-            <p className="text-center text-xl font-medium" style={{color:"gray", fontFamily: "Sans-serif",paddingTop: 12}}>Fastest Delivery</p>
+            <p
+              className="text-center text-xl font-medium"
+              style={{
+                color: "gray",
+                fontFamily: "Sans-serif",
+                paddingTop: 12,
+              }}
+            >
+              Fastest Delivery
+            </p>
           </div>
           <div className="flex flex-col items-center">
             <img
               src="https://res.cloudinary.com/resello/image/upload/v1721065222/Vector_2_t5xsvb.png"
               alt="Best Quality"
-              style={{ width: '50px', height: '50px' }}
+              style={{ width: "50px", height: "50px" }}
             />
-            <p className="text-center text-xl font-medium" style={{color:"gray", fontFamily: "Sans-serif", paddingTop: 12}}>Best Quality</p>
+            <p
+              className="text-center text-xl font-medium"
+              style={{
+                color: "gray",
+                fontFamily: "Sans-serif",
+                paddingTop: 12,
+              }}
+            >
+              Best Quality
+            </p>
           </div>
         </div>
       </div>
@@ -155,7 +252,10 @@ const Home = () => {
       </div>
 
       {/* BOGO Combo FLAT 25% OFF */}
-      <div ref={comboRef} className="w-full flex items-center justify-center py-5">
+      <div
+        ref={comboRef}
+        className="w-full flex items-center justify-center py-5"
+      >
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
           <div className="w-full items-start">
             <span className="text-4xl font-bold">BOGO Combo FLAT 25% OFF</span>
@@ -169,7 +269,10 @@ const Home = () => {
       </div>
 
       {/* Chicken */}
-      <div ref={chickenRef} className="w-full flex items-center justify-center py-5">
+      <div
+        ref={chickenRef}
+        className="w-full flex items-center justify-center py-5"
+      >
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
           <div className="w-full items-start">
             <span className="text-4xl font-bold">Chicken</span>
@@ -183,7 +286,10 @@ const Home = () => {
       </div>
 
       {/* Wraps */}
-      <div ref={wrapsRef} className="w-full flex items-center justify-center py-5">
+      <div
+        ref={wrapsRef}
+        className="w-full flex items-center justify-center py-5"
+      >
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
           <div className="w-full items-start">
             <span className="text-4xl font-bold">Wraps</span>
@@ -197,7 +303,10 @@ const Home = () => {
       </div>
 
       {/* Paratha Rolls */}
-      <div ref={parathaRollsRef} className="w-full flex items-center justify-center py-5">
+      <div
+        ref={parathaRollsRef}
+        className="w-full flex items-center justify-center py-5"
+      >
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
           <div className="w-full items-start">
             <span className="text-4xl font-bold">Paratha Rolls</span>
@@ -211,7 +320,10 @@ const Home = () => {
       </div>
 
       {/* Shawarma */}
-      <div ref={shawarmaRef} className="w-full flex items-center justify-center py-5">
+      <div
+        ref={shawarmaRef}
+        className="w-full flex items-center justify-center py-5"
+      >
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
           <div className="w-full items-start">
             <span className="text-4xl font-bold">Shawarma</span>
