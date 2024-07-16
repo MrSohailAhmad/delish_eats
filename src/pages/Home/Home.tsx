@@ -77,7 +77,7 @@ const Home = () => {
     },
   ];
 
-  const scrollToSection = (sectionRef: any) => {
+  const scrollToSection = (sectionRef) => {
     window.scrollTo({
       top: sectionRef.current.offsetTop,
       behavior: "smooth",
@@ -86,17 +86,17 @@ const Home = () => {
 
   return (
     <>
-      <div className=" grid w-[80%] sm:h-[30rem] place-self-center justify-center" style={{ backgroundColor: '#8B3DFF', alignItems: 'center' }} >
-        <div className="grid w-[80%] place-self-center  py-3 mx-auto lg:gap-8 xl:gap-0 lg:py-4 lg:grid-cols-12">
+      <div className="grid w-[100%] sm:h-[30rem] place-self-center justify-center" style={{ backgroundColor: '#4355FE', alignItems: 'center' }}>
+        <div className="grid w-[80%] place-self-center py-3 mx-auto lg:gap-8 xl:gap-0 lg:py-4 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-[7rem] text-white">
               ZERO
             </h1>
             <h1 className="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-2xl text-white">
-              DELIVERY, PLATEFORM & PACKAJING FEE
+              DELIVERY, PLATFORM & PACKAGING FEE
             </h1>
-            <p className="max-w-2xl mb-6  lg:mb-8 md:text-lg lg:text-xl text-gray-400">
-              We deliver all your dishesh in one single order
+            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl text-gray-400">
+              We deliver all your dishes in one single order
             </p>
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
@@ -107,33 +107,41 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/*  */}
+      
+      {/* Implementing three horizontal delivery processes */}
       <div className="w-full flex items-center justify-center py-[5rem]">
-        <div className="w-[80%] flex  flex-col gap-10">
-          <div className="">
-            <span className="text-4xl font-bold">What's on your mind?</span>
+        <div className="w-[80%] flex justify-between">
+          <div className="flex flex-col items-center">
+            <img
+              src="https://res.cloudinary.com/resello/image/upload/v1721065222/Vector_kwsy6q.png"
+              alt="Easy to order"
+              style={{ width: '50px', height: '50px' }}
+            />
+            <p className="text-center text-xl font-bold">Easy to order</p>
           </div>
-          <div className="flex w-full flex-wrap gap-5 items-center justify-start">
-            {navCardData.map((item, indx) => (
-              <div
-                key={indx}
-                onClick={() => scrollToSection(item.ref)}
-                className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer"
-              >
-                <img className={`w-full h-[80%]`} src={item.img} alt="" />
-                <p>
-                  <span className="font-bold text-xl">{item.title}</span>
-                </p>
-              </div>
-            ))}
+          <div className="flex flex-col items-center">
+            <img
+              src="https://res.cloudinary.com/resello/image/upload/v1721065222/Vector_1_zz5gcb.png"
+              alt="Fastest Delivery"
+              style={{ width: '50px', height: '50px' }}
+            />
+            <p className="text-center text-xl font-bold">Fastest Delivery</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <img
+              src="https://res.cloudinary.com/resello/image/upload/v1721065222/Vector_2_t5xsvb.png"
+              alt="Best Quality"
+              style={{ width: '50px', height: '50px' }}
+            />
+            <p className="text-center text-xl font-bold">Best Quality</p>
           </div>
         </div>
       </div>
 
-      {/*  Popular */}
+      {/* Popular */}
       <div className="w-full flex items-center justify-center py-5">
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
-          <div className=" w-full items-start">
+          <div className="w-full items-start">
             <span className="text-4xl font-bold">Popular</span>
           </div>
           <div className="flex w-full flex-wrap items-center justify-start gap-5">
@@ -144,13 +152,10 @@ const Home = () => {
         </div>
       </div>
 
-      {/*  BOGO Combo FLAT 25% OFF */}
-      <div
-        ref={comboRef}
-        className="w-full flex items-center justify-center py-5"
-      >
+      {/* BOGO Combo FLAT 25% OFF */}
+      <div ref={comboRef} className="w-full flex items-center justify-center py-5">
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
-          <div className=" w-full items-start">
+          <div className="w-full items-start">
             <span className="text-4xl font-bold">BOGO Combo FLAT 25% OFF</span>
           </div>
           <div className="flex w-full flex-wrap items-center justify-start gap-5">
@@ -162,12 +167,9 @@ const Home = () => {
       </div>
 
       {/* Chicken */}
-      <div
-        ref={chickenRef}
-        className="w-full flex items-center justify-center py-5"
-      >
+      <div ref={chickenRef} className="w-full flex items-center justify-center py-5">
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
-          <div className=" w-full items-start">
+          <div className="w-full items-start">
             <span className="text-4xl font-bold">Chicken</span>
           </div>
           <div className="flex w-full flex-wrap items-center justify-start gap-5">
@@ -179,12 +181,9 @@ const Home = () => {
       </div>
 
       {/* Wraps */}
-      <div
-        ref={wrapsRef}
-        className="w-full flex items-center justify-center py-5"
-      >
+      <div ref={wrapsRef} className="w-full flex items-center justify-center py-5">
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
-          <div className=" w-full items-start">
+          <div className="w-full items-start">
             <span className="text-4xl font-bold">Wraps</span>
           </div>
           <div className="flex w-full flex-wrap items-center justify-start gap-5">
@@ -196,12 +195,9 @@ const Home = () => {
       </div>
 
       {/* Paratha Rolls */}
-      <div
-        ref={parathaRollsRef}
-        className="w-full flex items-center justify-center py-5"
-      >
+      <div ref={parathaRollsRef} className="w-full flex items-center justify-center py-5">
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
-          <div className=" w-full items-start">
+          <div className="w-full items-start">
             <span className="text-4xl font-bold">Paratha Rolls</span>
           </div>
           <div className="flex w-full flex-wrap items-center justify-start gap-5">
@@ -213,12 +209,9 @@ const Home = () => {
       </div>
 
       {/* Shawarma */}
-      <div
-        ref={shawarmaRef}
-        className="w-full flex items-center justify-center py-5"
-      >
+      <div ref={shawarmaRef} className="w-full flex items-center justify-center py-5">
         <div className="w-[80%] flex items-center justify-center flex-col gap-10">
-          <div className=" w-full items-start">
+          <div className="w-full items-start">
             <span className="text-4xl font-bold">Shawarma</span>
           </div>
           <div className="flex w-full flex-wrap items-center justify-start gap-5">
