@@ -84,6 +84,14 @@ const Home = () => {
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
   };
+
+  const scrollToSection = (sectionRef: any) => {
+    window.scrollTo({
+      top: sectionRef.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <div className=" w-full flex items-start justify-center">
@@ -235,7 +243,7 @@ const Home = () => {
             {cetagoaryData.map((item, indx) => (
               <div
                 key={indx}
-                onClick={() => ""}
+                onClick={() => scrollToSection(item.ref)}
                 className="w-[12rem] hover:-translate-y-1 transition-transform flex flex-col gap-3 h-auto items-center justify-center cursor-pointer"
               >
                 <img className="w-full h-[80%]" src={item.img} alt="" />
